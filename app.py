@@ -2,16 +2,17 @@ import secrets
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, SelectField
-from wtforms.validators import DataRequired, Email
+from wtforms import StringField, SubmitField, SelectField, TelField
+from wtforms.validators import DataRequired, Email, Length
 from flask_mail import Mail, Message
 import logging
 from flask_pymongo import PyMongo
- 
+
 app = Flask(__name__, static_url_path='/static')
 Bootstrap(app)
+
 # MongoDB Configuration
-app.config['MONGO_URI'] = "mongodb+srv://vercel-admin-user-64fd95fa5642a72fbb3a4b1e:mGDBDIbYtGVhJ0nq@cluster0.36qmfco.mongodb.net/BloodDonation?retryWrites=true&w=majority"  # Replace with your MongoDB URI
+app.config['MONGO_URI'] = "mongodb+srv://vercel-admin-user-64fd95fa5642a72fbb3a4b1e:mGDBDIbYtGVhJ0nq@cluster0.36qmfco.mongodb.net/BloodDonation?retryWrites=true&w=majority"
 mongo = PyMongo(app)
 
 # Set the generated secret key for CSRF protection
@@ -25,14 +26,15 @@ logger = logging.getLogger(__name__)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'luckysolanki902@gmail.com'  # Replace with your email address
-app.config['MAIL_PASSWORD'] = 'rgmowrqyiedscozm'  # Replace with your email password
+app.config['MAIL_USERNAME'] = 'luckysolanki902@gmail.com'
+app.config['MAIL_PASSWORD'] = 'rgmowrqyiedscozm'
 
 mail = Mail(app)
 
 class DonorForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
+    mobile = TelField('Mobile', validators=[DataRequired(), Length(min=10, max=10)])
     bloodgroup = SelectField('Blood Group', choices=[
         ('A+', 'A+'),
         ('A-', 'A-'),
@@ -59,19 +61,19 @@ def send_thank_you_email(name, email):
         logger.error(f"Error sending thank-you email to {email}: {str(e)}")
 
 # Function to send form submission information to the NGO
-def send_submission_info(name, email, bloodgroup, address):
+def send_submission_info(name, email, mobile, bloodgroup, address):
     try:
-        msg = Message('New Donor Registration', sender='luckysolanki902.com', recipients=['sachinsahu80053@gmail.com'])
-        msg.body = f"New donor registration:\nName: {name}\nEmail: {email}\nBlood Group: {bloodgroup}\nAddress: {address}"
+        msg = Message('New Donor Registration', sender='luckysolanki902.com', recipients=['creativethings902@gmail.com'])
+        msg.body = f"New donor registration:\nName: {name}\nEmail: {email}\nMobile: {mobile}\nBlood Group: {bloodgroup}\nAddress: {address}"
         mail.send(msg)
-                # Insert data into MongoDB
+        # Insert data into MongoDB
         mongo.db.donors.insert_one({
             'name': name,
             'email': email,
+            'mobile': mobile,
             'bloodgroup': bloodgroup,
             'address': address
         })
-
 
         logger.info(f"Form submission information sent to NGO for {name}")
 
@@ -96,11 +98,14 @@ def index():
 
 # Define the registration route to render 'registration.html'
 @app.route('/registration', methods=['GET', 'POST'])
+# Define the registration route to render 'registration.html'
+@app.route('/registration', methods=['GET', 'POST'])
 def registration():
     form = DonorForm()
     if form.validate_on_submit():
         name = form.name.data
         email = form.email.data
+        mobile = form.mobile.data
         bloodgroup = form.bloodgroup.data
         address = form.address.data
 
@@ -108,13 +113,13 @@ def registration():
         send_thank_you_email(name, email)
 
         # Send the form submission information to the NGO, including blood group and address
-        send_submission_info(name, email, bloodgroup, address)
+        send_submission_info(name, email, mobile, bloodgroup, address)
 
         flash('Thank you for registering!', 'success')
         return redirect(url_for('index'))
 
     return render_template('registration.html', form=form)
 
+
 if __name__ == '__main__':
     app.run(debug=True)
- 

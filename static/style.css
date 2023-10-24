@@ -1,119 +1,178 @@
-/* Reset some default browser styles */
-body, h1, p {
+body {
+    font-family: 'Arial', sans-serif;
+    /* background: linear-gradient(to bottom, #ff1a1a, #8c1212); */
+    color: #fff;
+    text-align: center;
     margin: 0;
     padding: 0;
 }
 
-/* Set common styles */
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    text-align: center;
-}
-
-/* Header styles */
-header {
-    background: #1a6ac4;
-    color: #fff;
-    padding: 10px 0;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.logo {
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-.menu a {
-    color: #fff;
+header a:hover {
     text-decoration: none;
-    margin: 0 20px;
 }
 
-/* Carousel styles */
-.carousel {
-    /* Add your carousel styling here */
+.donate-button {
+    display: inline-block;
+    background: white;
+    color: #8c1212;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin: 10px;
+    margin-left: 0;
+    margin-bottom: 2rem;
+    text-decoration: none;
+    box-shadow: 0px 3px 6px rgba(140, 18, 18, 0.3);
+    /* Blood-colored box shadow */
 }
 
-/* Content styles */
-.content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+
+header {
+    position: relative;
+    background: linear-gradient(to bottom, #8c1212, #4d0a0a);
+    color: #fff;
+    padding: 30px;
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: 3rem;
 }
 
 p {
-    font-size: 1.2em;
-    margin: 10px 0;
+    font-size: 1.5rem;
 }
 
-.button {
-    background: #1a6ac4;
+.quotes {
+    margin: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quote {
+    background: linear-gradient(to bottom, #8c1212, #4d0a0a);
     color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    margin-top: 20px;
-    display: inline-block;
-    transition: background 0.3s;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
 }
 
-.button:hover {
-    background: #135595;
+.quote:hover {
+    transform: scale(1.03);
 }
 
-/* Footer styles */
-footer {
-    background: #1a6ac4;
+.quote blockquote {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.footer {
+    /* background: linear-gradient(to bottom, #8c1212, #4d0a0a); */
+    background: linear-gradient(to bottom, #000, #4d0a0a);
     color: #fff;
-    padding: 10px 0;
+    padding: 30px;
+}
+
+.contact {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .contact-info {
-    max-width: 1200px;
-    margin: 0 auto;
-    font-size: 1.2em;
+    text-align: left;
+    max-width: 400px;
 }
 
-/* Responsive design */
-@media screen and (max-width: 768px) {
-    .menu {
-        display: none;
-    }
-    header {
-        padding: 10px 0;
-    }
-    nav {
-        flex-direction: column;
-    }
-    .logo {
-        text-align: center;
-    }
-    .menu a {
-        margin: 10px 0;
-        display: block;
-    }
+h2 {
+    font-size: 2.5rem;
+    margin: 0 0 20px;
 }
 
-/* Add this to your style.css */
-/* Add this to your style.css */
-@media (max-width: 767px) {
-    .card-body {
-        width: 100%;
-        margin: 0 auto;
-    }
+ul {
+    list-style: none;
+    padding: 0;
 }
 
+li {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: white;
+}
 
+li a {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: white;
+}
+
+.profile-photo img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 50%;
+    float: right;
+}
+
+.motivation {
+    display: flex;
+    justify-content: center;
+    /* background: linear-gradient(to bottom, #8c1212, #4d0a0a); */
+    color: #fff;
+    padding: 40px;
+}
+
+.motivation-quote {
+    background: white;
+    border: 2px solid black;
+    color: black;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 700px;
+    text-align: center;
+}
+
+.quote-text {
+    font-size: 2rem;
+}
+
+.motivation-text {
+    font-size: 1.3rem;
+    margin: 20px 0;
+}
+
+.motivation-link {
+    text-decoration: none;
+    background: linear-gradient(to bottom, #8c1212, #4d0a0a);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+@media (max-width: 600px) {
+    .quote blockquote {
+        font-size: 0.8rem;
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+
+    .quote-text {
+        font-size: 1.5rem;
+    }
+
+    .motivation-text {
+        font-size: 1rem;
+        margin: 20px 0;
+    }
+
+}

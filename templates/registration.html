@@ -1,77 +1,116 @@
-<!DOCTYPE html>
 <html>
 
 <head>
+    <meta charset="utf-8">
     <title>Register for Blood Donation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Join our Blood Donation Event and make a difference. Your generosity can save lives.">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <!-- Include Bootstrap CSS (add the appropriate link to Bootstrap CSS) -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-    <style>
-        .form-control-label {
-            font-size: 1.6rem;
-        }
-
-        .form-control {
-            font-size: 1.6rem;
-            margin: 1rem auto;
-            padding: 1rem;
-        }
-
-        .form-group {
-            margin: 1.6rem auto;
-        }
-
-        .btn-lg {
-            width: 30%;
-            font-size: 1.6rem;
-            padding: 0.6rem;
-            border-radius: 0.7rem;
-            margin-top: 2rem;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style2.css') }}">
 </head>
 
 <body>
-    <div class="container-fluid mt-2">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h1 class="card-title text-center">Register for Blood Donation</h1>
-                        <form method="post" action="">
-                            {{ form.hidden_tag() }}
-                            <div class="form-group">
-                                {{ form.name.label(class="form-control-label") }}
-                                {{ form.name(class="form-control", placeholder="Your Name") }}
-                            </div>
-                            <div class="form-group">
-                                {{ form.email.label(class="form-control-label") }}
-                                {{ form.email(class="form-control", placeholder="Your Email") }}
-                            </div>
-                            <div class="form-group">
-                                {{ form.bloodgroup.label(class="form-control-label") }}
-                                {{ form.bloodgroup(class_="custom-select", id="bloodgroup") }}
-                            </div>
-                            <div class="form-group">
-                                {{ form.address.label(class="form-control-label") }}
-                                {{ form.address(class="form-control", placeholder="Your Address") }}
-                            </div>
-                            <div class="text-center">
-                                {{ form.submit(class="btn-lg btn-primary") }}
-                            </div>
-                        </form>
+    <div class="login-root">
+        <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
+            <div class="loginbackground box-background--white padding-top--64">
+                <div class="loginbackground-gridContainer">
+                    <div class="box-root flex-flex" style="grid-area: top / start / 8 / end;">
+                        <div class="box-root"
+                            style="background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%); flex-grow: 1;">
+                        </div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 4 / 2 / auto / 5;">
+                        <div class="box-root box-divider--light-all-2 animationLeftRight tans3s" style="flex-grow: 1;">
+                        </div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 6 / start / auto / 2;">
+                        <div class="box-root box-background--blue800" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 7 / start / auto / 4;">
+                        <div class="box-root box-background--blue animationLeftRight" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 8 / 4 / auto / 6;">
+                        <div class="box-root box-background--gray100 animationLeftRight tans3s" style="flex-grow: 1;">
+                        </div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 2 / 15 / auto / end;">
+                        <div class="box-root box-background--cyan200 animationRightLeft tans4s" style="flex-grow: 1;">
+                        </div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 3 / 14 / auto / end;">
+                        <div class="box-root box-background--blue animationRightLeft" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 4 / 17 / auto / 20;">
+                        <div class="box-root box-background--gray100 animationRightLeft tans4s" style="flex-grow: 1;">
+                        </div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 5 / 14 / auto / 17;">
+                        <div class="box-root box-divider--light-all-2 animationRightLeft tans3s" style="flex-grow: 1;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+                <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+                    <h1><a href="/" rel="dofollow">Blood Donation</a></h1>
+                </div>
+                <div class="formbg-outer">
+                    <div class="formbg">
+                        <div class="formbg-inner padding-horizontal--48">
+                            <span class="padding-bottom--15">Register For Blood Donation</span>
+                            <form method="post" action="/registration" id="stripe-login">
+                                {{ form.hidden_tag() }}
+                                <div class="field padding-bottom--24">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="field padding-bottom--24">
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email" required>
+                                </div>
+                                <div class="field padding-bottom--24">
+                                    <label for="mobile">Mobile</label>
+                                    <input type="tel" id="mobile" name="mobile" required pattern="[0-9]+" minlength="10"
+                                        maxlength="10">
+                                </div>
+                                <div class="field padding-bottom--24">
+                                    <div class="grid--50-50">
+                                        <label for="bloodgroup">Blood Group</label>
+                                        <select id="bloodgroup" name="bloodgroup" required>
+                                            <option value="A+">A+</option>
+                                            <option value="A-">A-</option>
+                                            <option value="B+">B+</option>
+                                            <option value="B-">B-</option>
+                                            <option value="AB+">AB+</option>
+                                            <option value="AB-">AB-</option>
+                                            <option value="O+">O+</option>
+                                            <option value="O-">O-</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="field padding-bottom--24">
+                                    <label for="address">Address</label>
+                                    <input type="text" id="address" name="address">
+                                </div>
+
+                                <div class="field padding-bottom--24">
+                                    <input type="submit" name="submit" value="Continue">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="footer-link padding-top--24">
+                        <span><a href="#">Follow us on Instagram</a></span>
+
+                        <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
+                            <!-- <span><a href="#">Follow us on Instagram</a></span> -->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Include Bootstrap JS (add the appropriate link to Bootstrap JS) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 </body>
 
 </html>
