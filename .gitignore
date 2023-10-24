@@ -1,0 +1,41 @@
+# Ignore Python-related files
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environments (if you're using virtualenv)
+venv/
+env/
+
+# Ignore IDE/Editor files
+.idea/
+.vscode/
+*.sublime-*
+
+# Ignore database files (e.g., SQLite)
+*.db
+
+# Ignore log files
+*.log
+
+# Ignore environment-specific configuration files
+.env
+
+# Ignore files generated during build or development
+__init__.pyc
+instance/
+
+# Ignore compiled files
+*.pyc
+*.pyo
+
+# Ignore local development files
+*.flaskenv
+*.env
+
+# Ignore database backups
+*.bak
+
+# Ignore the .DS_Store file on macOS
+.DS_Store

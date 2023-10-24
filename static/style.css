@@ -1,0 +1,119 @@
+/* Reset some default browser styles */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set common styles */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    text-align: center;
+}
+
+/* Header styles */
+header {
+    background: #1a6ac4;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 20px;
+}
+
+/* Carousel styles */
+.carousel {
+    /* Add your carousel styling here */
+}
+
+/* Content styles */
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.button {
+    background: #1a6ac4;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+.button:hover {
+    background: #135595;
+}
+
+/* Footer styles */
+footer {
+    background: #1a6ac4;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.contact-info {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 1.2em;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .menu {
+        display: none;
+    }
+    header {
+        padding: 10px 0;
+    }
+    nav {
+        flex-direction: column;
+    }
+    .logo {
+        text-align: center;
+    }
+    .menu a {
+        margin: 10px 0;
+        display: block;
+    }
+}
+
+/* Add this to your style.css */
+/* Add this to your style.css */
+@media (max-width: 767px) {
+    .card-body {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+
