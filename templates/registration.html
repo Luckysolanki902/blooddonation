@@ -6,10 +6,50 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <!-- Include Bootstrap CSS (add the appropriate link to Bootstrap CSS) -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        @media (min-width: 900px) {
+            .form-control-label {
+                font-size: 1rem;
+            }
+
+            .form-control {
+                font-size: 1rem;
+                margin: 0.7rem auto;
+                padding: 0.7rem;
+            }
+
+            .form-group {
+                margin: 1.5rem auto;
+            }
+        }
+
+        .form-control-label {
+            font-size: 2rem;
+        }
+
+        .form-control {
+            font-size: 2rem;
+            margin: 1rem auto;
+            padding: 1rem;
+        }
+
+        .form-group {
+            margin: 3rem auto;
+        }
+
+        .btn-lg {
+            width: 30%;
+            font-size: 2rem;
+            padding: 1rem;
+            border-radius: 0.7rem;
+            margin: 3rem auto;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container mt-5">
+    <div class="container-fluid mt-5">
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="card">
@@ -34,7 +74,7 @@
                                 {{ form.address(class="form-control", placeholder="Your Address") }}
                             </div>
                             <div class="text-center">
-                                {{ form.submit(class="btn btn-primary") }}
+                                {{ form.submit(class="btn-lg btn-primary") }}
                             </div>
                         </form>
                     </div>
@@ -47,5 +87,4 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
 </html>

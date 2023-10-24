@@ -7,7 +7,7 @@ from wtforms.validators import DataRequired, Email
 from flask_mail import Mail, Message
 import logging
 from flask_pymongo import PyMongo
-
+ 
 app = Flask(__name__)
 Bootstrap(app)
 # MongoDB Configuration
@@ -116,4 +116,5 @@ def registration():
     return render_template('registration.html', form=form)
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
+ 
