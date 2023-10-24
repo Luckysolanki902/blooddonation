@@ -8,7 +8,7 @@ from flask_mail import Mail, Message
 import logging
 from flask_pymongo import PyMongo
  
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 Bootstrap(app)
 # MongoDB Configuration
 app.config['MONGO_URI'] = "mongodb+srv://vercel-admin-user-64fd95fa5642a72fbb3a4b1e:mGDBDIbYtGVhJ0nq@cluster0.36qmfco.mongodb.net/BloodDonation?retryWrites=true&w=majority"  # Replace with your MongoDB URI
