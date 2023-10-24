@@ -151,7 +151,11 @@ li a {
     padding: 10px 20px;
     border-radius: 20px;
 }
-
+.motivation-link:hover {
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(to bottom, #6a0d0d, #330505);
+}
 @media (max-width: 600px) {
     .quote blockquote {
         font-size: 0.8rem;
