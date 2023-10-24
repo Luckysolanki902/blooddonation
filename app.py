@@ -63,7 +63,7 @@ def send_thank_you_email(name, email):
 # Function to send form submission information to the NGO
 def send_submission_info(name, email, mobile, bloodgroup, address):
     try:
-        msg = Message('New Donor Registration', sender='luckysolanki902.com', recipients=['creativethings902@gmail.com'])
+        msg = Message('New Donor Registration', sender='luckysolanki902.com', recipients=['donate.blood.gift@gmail.com'])
         msg.body = f"New donor registration:\nName: {name}\nEmail: {email}\nMobile: {mobile}\nBlood Group: {bloodgroup}\nAddress: {address}"
         mail.send(msg)
         # Insert data into MongoDB
