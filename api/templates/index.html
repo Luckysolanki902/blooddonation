@@ -25,16 +25,17 @@
     <div id="imageCarousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{ image_url1 }}" alt="Image 1">
+                <img src="{{ url_for('static', filename='images/image1.jpg') }}" alt="Image 1">
             </div>
             <div class="carousel-item">
-                <img src="{{ image_url2 }}" alt="Image 2">
+                <img src="{{ url_for('static', filename='images/image2.jpg') }}" alt="Image 2">
             </div>
             <div class="carousel-item">
-                <img src="{{ image_url3 }}" alt="Image 3">
+                <img src="{{ url_for('static', filename='images/image3.jpg') }}" alt="Image 3">
             </div>
             <div class="carousel-item">
-                <img src="{{ image_url4 }}" alt="Image 4">
+                <img src="{{ url_for('static', filename='images/image4.jpg') }}" alt="Image 4">
+
             </div>
         </div>
     </div>
@@ -68,7 +69,8 @@
                 </ul>
             </div>
             <div class="profile-photo">
-                <img src="your-photo.jpg" alt="Your Photo">
+                <img width="100" height="100" src="{{ url_for('static', filename='images/image1.jpg') }}" alt="dp">
+
             </div>
         </div>
     </section>
