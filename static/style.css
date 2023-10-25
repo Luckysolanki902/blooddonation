@@ -24,7 +24,7 @@ header a:hover {
     text-decoration: none;
     box-shadow: 0px 3px 6px rgba(140, 18, 18, 0.3);
     /* Blood-colored box shadow */
-} 
+}
 
 
 header {
@@ -47,6 +47,11 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
 }
 
 .quote {
@@ -151,11 +156,13 @@ li a {
     padding: 10px 20px;
     border-radius: 20px;
 }
+
 .motivation-link:hover {
     text-decoration: none;
     color: #fff;
     background: linear-gradient(to bottom, #6a0d0d, #330505);
 }
+
 @media (max-width: 600px) {
     .quote blockquote {
         font-size: 0.8rem;
