@@ -115,11 +115,50 @@ li a {
     color: white;
 }
 
+li a:hover {
+    color: white;
+}
+
+.patient-collage {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem;
+}
+
+.patient-collage img {
+    max-width: 300px;
+}
+
+@media (width>500px) {
+    .patient-collage {
+        padding: 5rem;
+        padding-top: 2rem;
+
+    }
+
+    .patient-collage img {
+        max-width: 600px;
+    }
+}
+
+@media (width>1000px) {
+    .patient-collage {
+        padding: 10rem;
+        padding-top: 3rem;
+    }
+
+    .patient-collage img {
+        max-width: none;
+    }
+}
+
 .profile-photo img {
     max-width: 150px;
     height: auto;
     border-radius: 50%;
     float: right;
+    outline: 2px solid white;
 }
 
 .motivation {
