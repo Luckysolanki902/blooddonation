@@ -6,14 +6,10 @@ from wtforms import StringField, SubmitField, SelectField, TelField
 from wtforms.validators import DataRequired, Email, Length
 from flask_mail import Mail, Message
 import logging
-from flask_pymongo import PyMongo
 
 app = Flask(__name__, static_url_path='/static')
 Bootstrap(app)
 
-# MongoDB Configuration
-app.config['MONGO_URI'] = "mongodb+srv://vercel-admin-user-64fd95fa5642a72fbb3a4b1e:mGDBDIbYtGVhJ0nq@cluster0.36qmfco.mongodb.net/BloodDonation?retryWrites=true&w=majority"
-mongo = PyMongo(app)
 
 # Set the generated secret key for CSRF protection
 app.config['SECRET_KEY'] = secrets.token_hex(16)
@@ -67,13 +63,13 @@ def send_submission_info(name, email, mobile, bloodgroup, address):
         msg.body = f"New donor registration:\nName: {name}\nEmail: {email}\nMobile: {mobile}\nBlood Group: {bloodgroup}\nAddress: {address}"
         mail.send(msg)
         # Insert data into MongoDB
-        mongo.db.donors.insert_one({
-            'name': name,
-            'email': email,
-            'mobile': mobile,
-            'bloodgroup': bloodgroup,
-            'address': address
-        })
+        # mongo.db.donors.insert_one({
+        #     'name': name,
+        #     'email': email,
+        #     'mobile': mobile,
+        #     'bloodgroup': bloodgroup,
+        #     'address': address
+        # })
 
         logger.info(f"Form submission information sent to NGO for {name}")
 
