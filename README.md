@@ -1,2 +1,2 @@
 # blooddonation
-A blood donation site project
+A blood donation site
